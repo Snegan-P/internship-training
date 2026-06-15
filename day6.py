@@ -3,8 +3,10 @@
 # class - blueprint of creating object 
 
 # object- An object is an instance of a class
+
     
-# constructor -- __self__ Used to initialize object attributes.
+# Constructor -- __self__ Used to initialize object attributes.
+
 #example    
 '''
 class Student:
@@ -17,9 +19,12 @@ student1 = Student("Alice", 20)
 print(student1.name)  
 print(student1.age)   
 '''
-'''
+
+
 # method -Functions defined inside a class.
+
 #example    
+'''
 class Student:
     def __init__(self, name):
         self.name = name
@@ -31,9 +36,13 @@ student1 = Student("Alice")
 student1.greet()  
 
 '''
-# Inheritance- one class inherits another class
+
+#  4 pillers of object oriented programming languages [oops]
+
+#  1 Inheritance- one class inherits another class
 
 '''
+
 Types of Inheritance 
 
 *single - one child class  inherits one parent class
@@ -45,92 +54,101 @@ Types of Inheritance
 *hierarical -multiple child class inherits from one child class 
 
 *hybrid- comination of two orr more types of inheritance
-'''
-'''
-
-class Bank:
-    def deposit(self):
-        print("Deposited")
-
-class SavingsAccount(Bank):
-    def interest(self):
-        print("Intrested Added")
-
-s = SavingsAccount()
-
-s.deposit()
-s.interest()
 
 '''
-# Polymorphism - method overloading - compile time polymorphism - python does not support method overloading 
+
+# 2  Polymorphism 
+
+''' 
+    compile time polymorphism -  method overloading  python does not support 
+    runtime polymorphism - method overriding 
+'''
+
+# 3 Abstraction- Hiding implementation details and showing only essential features.
 
 '''
-# method overriding-run time polymorphism
-class Animal:
-    def sound(self):
-        return "Animal Sound"
+  setter and getter methods 
 
-class dog(Animal):
-    def sound(self):
-        return "Bow Bow"
+  getter -read the Data
+  setter -write the data
 
-class cat(Animal):
-    def sound(self):
-        return "Meow Meow"
+  setter--  A setter is a method used to change or update the value
+  of a private (hidden) variable from outside the class.
 
-d = dog()
-c = cat()
+  getter--  A getter is a method used to look at or read the value of 
+  a private(hidden) variable from outside the class.
 
-print(d.sound())
-print(c.sound())
 '''
-# Abstraction- Hiding implementation details and showing only essential features.
-# getter method 
-class vechile:
-    def __init__(self,brand):
-        self.__brand=brand
 
-    def get_brand(self):    
-        return self.__brand
-    
-    def start(self):
-        pass
+#  4 Encapsulation
+'''
+  Two main pillers in encapsulation 
 
-class Car(vechile):
-    def start(self):
-        print("car is start") 
-
-class Bike(vechile):
-    def start(Self):
-        print("bike is start") 
-
-c=Car("thar")
-b=Bike("enfiled")
-
-c.start()
-b.start()
-
-# getter method
-
-class vechile:
-    def __init__(self,brand):
-        self.__brand=brand
-        self.__speed=0
-
-    def get_brand(self):
-        return self.__brand
-    
-    def get_speed(self):
-        return self.__speed     
-    
-    def set_speed(self,speed):
-        if speed>=0:
-            self,__speed=speed
-        else:
-            print("error")
-class bike(vechile):
-    def __init__(self,brand,)            
+  data hiding
+    the variables of a class are hidden from other classes..
 
 
+  public access points
+    the variables are hidden ,external code cannot chjange or read them directly 
+    insteed we provide public methods llike setter  keys and getter keys .
 
-# Encapsulation-  Bundling data and methods together and controlling access.
+     Encapsulation means wrapping your data and code together into a single package, like a capsule, 
+     and hiding the inner workings from the outside world.
+    ''' 
+# Task 1
+
+'''
+class Dog:
+    def __init__(self,name,breed):
+        self.name=name
+        self.breed=breed
+
+    def bark(self):
+        print(self.name,"say woof") 
+
+dog1=Dog("puppy","golden retriver")
+dog2=Dog("max","german shepherd")
+
+print(dog1.name,"is a",dog1.breed)
+print(dog2.name,"is a",dog2.breed)
+
+dog1.bark()
+dog2.bark()
+'''
+# task 2
+'''
+class Car:
+    def __init__(self,brand,color):
+        self.brand=brand
+        self.color=color
+        self.speed=0
+
+    def accelerate(self,amount):
+        self.speed+=amount
+        print(self.color,self.brand,"accelerated to",self.speed,"km/h")
+
+car1=Car("thar","black")
+car2=Car("scoripo","white")
+
+car1.accelerate(40)
+car2.accelerate(50)
+'''
+'''
+# task 3                 
+class student:
+    def __init__(self,name,roll_no):
+        self.name=name
+        self.roll_no=roll_no
+        self.mark=0
+
+    def add_mark(self,amount):
+        self.mark+=amount
+        print(self.name,"with roll no ",self.roll_no,"scored ",self.mark,"mark")
+
+student1=student("snegan",79) 
+student2=student("snt",31)
+
+student1.add_mark(79)
+student2.add_mark(99)
+'''
+
