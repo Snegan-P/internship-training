@@ -116,3 +116,4 @@ def delete_student(student_id: int):
     return {
         "message": "Student not found"
     }
+
