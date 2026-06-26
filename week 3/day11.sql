@@ -32,4 +32,9 @@ SELECT* FROM users WHERE ID =3;
 SELECT * FROM users
 ORDER BY id DESC;
 
+UPDATE users
+SET name = 'SNEGAN'
+WHERE email = 'sne@gmail.com';
+
+
 SELECT MAX(id) FROM users;
