@@ -7,7 +7,7 @@ DATABASE_URL = "postgresql://postgres:snegan%4026@localhost:5432/todo_db"
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
+ 
 Base = declarative_base()
 
 
@@ -17,3 +17,6 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+

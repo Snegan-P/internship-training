@@ -70,8 +70,7 @@ async def websocket_endpoint(websocket: WebSocket):
         while True:
             # Receive message from a client
 
-            data = await websocket.receive_text()  
-            
+            data = await websocket.receive_text()
             # Broadcast it to ALL connected clients
 
             await manager.broadcast(f"Client says: {data}")

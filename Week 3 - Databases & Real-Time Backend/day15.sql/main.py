@@ -18,7 +18,7 @@ def create_task(task: schemas.TaskCreate, db: Session = Depends(get_db)):
     )
     db.add(db_task)
     db.commit()
-    db.refresh(db_task)  # Gives us the generated ID from the database
+    db.refresh(db_task)  
     return db_task
 
 
@@ -26,6 +26,7 @@ def create_task(task: schemas.TaskCreate, db: Session = Depends(get_db)):
 def read_tasks(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     tasks = db.query(models.Task).offset(skip).limit(limit).all()
     return tasks
+
 
 
 @app.get("/tasks/{task_id}", response_model=schemas.Task)
