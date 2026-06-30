@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snegan P - Portfolio</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    color:#333;
+    transition:.4s;
+}
+
+header{
+    background:#2c3e50;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+#themeBtn{
+    margin-top:15px;
+    padding:10px 20px;
+    cursor:pointer;
+    border:none;
+    border-radius:5px;
+}
+
+main{
+    width:90%;
+    max-width:1100px;
+    margin:30px auto;
+}
+
+.profile{
+    display:flex;
+    gap:30px;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:25px;
+}
+
+.profile img{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.about{
+    flex:1;
+}
+
+.contact{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:25px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin:8px 0;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+input,
+textarea{
+    padding:12px;
+    margin:10px 0;
+}
+
+button{
+    padding:12px;
+    background:#2c3e50;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+footer{
+    background:#2c3e50;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Dark Theme */
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+.dark header,
+.dark footer{
+    background:#000;
+}
+
+.dark .profile,
+.dark .contact{
+    background:#333;
+    color:white;
+}
+
+@media(max-width:768px){
+
+.profile{
+    flex-direction:column;
+    text-align:center;
+}
+
+.profile img{
+    width:180px;
+    height:180px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Snegan P</h1>
+
+<p>Web Full Stack Developer</p>
+
+<button id="themeBtn">🌙 Dark Mode</button>
+
+</header>
+
+<main>
+
+<section class="profile">
+
+<img src="C:\Users\Snegan P\OneDrive - kbsrk\Pictures\beech.jpeg" alt="Profile">
+
+<div class="about">
+
+<h2>About Me</h2>
+
+<p>
+Hello! I'm Snegan, passionate about HTML, CSS,
+JavaScript, Python, FastAPI and Full Stack Development.
+</p>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>My Skills</h2>
+
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Python</li>
+<li>FastAPI</li>
+<li>SQL</li>
+<li>Power BI</li>
+<li>Java</li>
+</ul>
+
+</section>
+
+<section class="contact">
+
+<h2>Contact Me</h2>
+
+<form id="contactForm">
+
+<input
+type="text"
+id="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+id="email"
+placeholder="Your Email"
+required>
+
+<textarea
+id="message"
+rows="5"
+placeholder="Your Message"
+required></textarea>
+
+<button type="submit">
+
+Send Message
+
+</button>
+
+</form>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>© 2026 Snegan P | All Rights Reserved</p>
+
+</footer>
+
+<script>
+
+// EmailJS Initialization
+emailjs.init({
+    publicKey:"YOUR_PUBLIC_KEY"
+});
+
+// Dark Mode
+
+const themeBtn=document.getElementById("themeBtn");
+
+themeBtn.onclick=function(){
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+themeBtn.innerHTML="☀️ Light Mode";
+
+}else{
+
+themeBtn.innerHTML="🌙 Dark Mode";
+
+}
+
+}
+
+// Contact Form
+
+const form=document.getElementById("contactForm");
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+emailjs.send(
+"YOUR_SERVICE_ID",
+"YOUR_TEMPLATE_ID",
+{
+
+from_name:document.getElementById("name").value,
+
+from_email:document.getElementById("email").value,
+
+message:document.getElementById("message").value
+
+}
+
+).then(function(){
+
+alert("Message Sent Successfully!");
+
+form.reset();
+
+}).catch(function(error){
+
+alert("Failed to send message");
+
+console.log(error);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
